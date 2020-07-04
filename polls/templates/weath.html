@@ -1,4 +1,4 @@
-{% load static from static %}
+{% load static %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -9,9 +9,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Stocks</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.css"/>
-    <script src="{% static 'js/jquery-3.5.1.min.js' %}"></script>
-    <script src="{% static 'js/chariot.min.js' %}"></script>
-    <link rel=”stylesheet” href=”{% static 'css/chariot.min.css' %}”>
+    <script src="https://cdn.jsdelivr.net/npm/chariot-tooltips@1.0.0/release/chariot.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <link rel=”stylesheet” href=”https://cdn.jsdelivr.net/npm/chariot-tooltips@1.0.0/release/chariot.css”>
 
     <style>
         .chariot-button {
