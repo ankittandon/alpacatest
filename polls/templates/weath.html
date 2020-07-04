@@ -6,17 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Stocks</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.css"/>
     <script type="text/javascript" src="/static/js/chariot.min.js"></script>
     <script type="text/javascript" src="/static/js/jquery-3.5.1.min.js"></script>
     <link rel="stylesheet" type="text/css" href="/static/css/chariot.min.css">
+    <style>
+        .chariot-button {
+          background: white;
+        }
+      </style>
 </head>
 
 <body>
     <section class="hero is-primary">
         <div class="hero-body">
             <div class="container">
-                <h1 class="title">
+                <h1 class="title" id="title">
                     Today's Stock Price (ankit's test)
                 </h1>
             </div>
@@ -30,14 +35,13 @@
                         {% csrf_token %}
                         <div class="field has-addons">
                             <div class="control is-expanded">
-
                             </div>
                             <div class="control">
-                               <!-- <button class="button is-info">
-                                    Add Company
-                                </button>-->
                             </div>
                         </div>
+                        <div class="chariot-button">
+                            <a href="#" class="tutorial-link"><span class="cta">Star The Tour</span></a> 
+                        </div>                   
                     </form>
                 </div>
             </div>
@@ -52,7 +56,7 @@
                             <div class="media-content">
                                 <div class="content">
                                     <p>
-                                        <span class="title">{{ company.city }}</span>
+                                        <span class="title" id="microsoft">{{ company.city }}</span>
                                         <br>
                                         <span class="subtitle">Open : ${{ company.open }}</span>
                                         <span class="subtitle">&nbsp;&nbsp;&nbsp;High : ${{ company.high }}</span>
@@ -71,7 +75,7 @@
                             <div class="media-content">
                                 <div class="content">
                                     <p>
-                                        <span class="title">{{ company1.city1 }}</span>
+                                        <span class="title" id="amazon">{{ company1.city1 }}</span>
                                         <br>
                                         <span class="subtitle">Open : ${{ company1.open }}</span>
                                         <span class="subtitle">&nbsp;&nbsp;&nbsp;High : ${{ company1.high }}</span>
@@ -89,6 +93,38 @@
     </section>
     <footer class="footer">
     </footer>
-</body>
 
+    <script>
+$(function() {
+  $('.tutorial-link').click(function() {
+    chariot.startTutorial([
+    {
+    selectors: 'h1#title',
+    tooltip: {
+      position: 'bottom',
+      title: 'Part 1',
+      text: 'This is an example tutorial I set up.'
+        }
+    },
+    {
+        selectors: "span#microsoft",
+        tooltip: {
+            position: 'bottom',
+            title: 'Part 2',
+            text:'Check out the second part of the tutorial'
+        }
+    },
+    {
+        selectors: "span#amazon",
+        tooltip: {
+            position: 'bottom',
+            title: 'Part 3',
+            text:'Check out the third part of the tutorial'
+        }
+    }
+    ]);
+  });
+});
+</script>
+</body>
 </html>
