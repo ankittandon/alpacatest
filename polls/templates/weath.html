@@ -27,6 +27,9 @@
         <link href="https://cdn.jsdelivr.net/npm/chariot-tooltips@1.0.0/example/example-tooltip.css" rel="stylesheet"> 
         <script src="https://cdn.jsdelivr.net/npm/chariot-tooltips@1.0.0/release/chariot.js"></script>
         <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+        <script>// Send a "Visited Webiste" event to Mixpanel
+            mixpanel.track("Visited the site");
+        </script>
         <script>window.$ = window.jQuery;
 
         var char = new chariot({
