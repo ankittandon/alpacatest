@@ -1,133 +1,75 @@
-{% load static %}
-
 <!DOCTYPE html>
-<html lang="en">
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Stocks</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.css"/>
-    <script src="https://cdn.jsdelivr.net/npm/chariot-tooltips@1.0.0/release/chariot.js"></script>
-    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
-    <link rel=”stylesheet” href=”https://cdn.jsdelivr.net/npm/chariot-tooltips@1.0.0/release/chariot.css”>
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+       
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.css"/>
+        <link href="https://cdn.jsdelivr.net/npm/chariot-tooltips@1.0.0/release/chariot.css" rel="stylesheet"> 
+        <link href="https://cdn.jsdelivr.net/npm/chariot-tooltips@1.0.0/example/example-tooltip.css" rel="stylesheet"> 
+        <script src="https://cdn.jsdelivr.net/npm/chariot-tooltips@1.0.0/release/chariot.js"></script>
+        <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+        <script type="module" src="../static/js/tooltips.js"></script>
+        
 
-    <style>
-        .chariot-button {
-          background: white;
-        }
-      </style>
-</head>
-
-<body>
-    <section class="hero is-primary">
-        <div class="hero-body">
+        <h1 class="title" style="text-align: center">Welcome to Finagic!</h1>
+        <section class="section">
             <div class="container">
-                <h1 class="title" id="title">
-                    Today's Stock Price (ankit's test)
-                </h1>
-            </div>
-        </div>
-    </section>
-    <section class="section">
-        <div class="container">
-            <div class="columns">
-                <div class="column is-offset-4 is-4">
-                    <form method="POST">
-                        {% csrf_token %}
-                        <div class="field has-addons">
-                            <div class="control is-expanded">
-                            </div>
-                            <div class="control">
-                            </div>
+                <div class="columns">
+                    <div class="column is-offset-4 is-4">
+                        <div class="box">
+                            <article class="media">
+                                <div class="media-content">
+                                    <div class="content">
+                                        <p>
+                                            <span class="title" id="microsoft">{{ company.city }}</span>
+                                            <br>
+                                            <span class="subtitle">Open : ${{ company.open }}</span>
+                                            <span class="subtitle">&nbsp;&nbsp;&nbsp;High : ${{ company.high }}</span>
+                                            <br>
+                                            <span class="subtitle">Close : ${{ company.close }}</span>
+                                            <span class="subtitle">&nbsp;&nbsp;&nbsp;Low : ${{ company.low }}</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </article>
                         </div>
-                        <div class="chariot-button">
-                            <a href="#" class="tutorial-link"><span class="cta">Star The Tour</span></a> 
-                        </div>                   
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="section">
-        <div class="container">
-            <div class="columns">
-                <div class="column is-offset-4 is-4">
-                    <div class="box">
-                        <article class="media">
-                            <div class="media-content">
-                                <div class="content">
-                                    <p>
-                                        <span class="title" id="microsoft">{{ company.city }}</span>
-                                        <br>
-                                        <span class="subtitle">Open : ${{ company.open }}</span>
-                                        <span class="subtitle">&nbsp;&nbsp;&nbsp;High : ${{ company.high }}</span>
-                                        <br>
-                                        <span class="subtitle">Close : ${{ company.close }}</span>
-                                        <span class="subtitle">&nbsp;&nbsp;&nbsp;Low : ${{ company.low }}</span>
-                                    </p>
+                        <div class="box">
+                            <article class="media">
+                                <div class="media-left">
                                 </div>
-                            </div>
-                        </article>
-                    </div>
-                    <div class="box">
-                        <article class="media">
-                            <div class="media-left">
-                            </div>
-                            <div class="media-content">
-                                <div class="content">
-                                    <p>
-                                        <span class="title" id="amazon">{{ company1.city1 }}</span>
-                                        <br>
-                                        <span class="subtitle">Open : ${{ company1.open }}</span>
-                                        <span class="subtitle">&nbsp;&nbsp;&nbsp;High : ${{ company1.high }}</span>
-                                        <br>
-                                        <span class="subtitle">Close : ${{ company1.close }}</span>
-                                        <span class="subtitle">&nbsp;&nbsp;&nbsp;Low : ${{ company1.low }}</span>
-                                    </p>
+                                <div class="media-content">
+                                    <div class="content">
+                                        <p>
+                                            <span class="title" id="amazon">{{ company1.city1 }}</span>
+                                            <br>
+                                            <span class="subtitle">Open : ${{ company1.open }}</span>
+                                            <span class="subtitle">&nbsp;&nbsp;&nbsp;High : ${{ company1.high }}</span>
+                                            <br>
+                                            <span class="subtitle">Close : ${{ company1.close }}</span>
+                                            <span class="subtitle">&nbsp;&nbsp;&nbsp;Low : ${{ company1.low }}</span>
+                                        </p>
+                                    </div>
                                 </div>
-                            </div>
-                        </article>
+                            </article>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-    <footer class="footer">
-    </footer>
+        </section>
 
-    <script>
-$(function() {
-  $('.tutorial-link').click(function() {
-    chariot.startTutorial([
-    {
-    selectors: 'h1#title',
-    tooltip: {
-      position: 'bottom',
-      title: 'Part 1',
-      text: 'This is an example tutorial I set up.'
-        }
-    },
-    {
-        selectors: "span#microsoft",
-        tooltip: {
-            position: 'bottom',
-            title: 'Part 2',
-            text:'Check out the second part of the tutorial'
-        }
-    },
-    {
-        selectors: "span#amazon",
-        tooltip: {
-            position: 'bottom',
-            title: 'Part 3',
-            text:'Check out the third part of the tutorial'
-        }
-    }
-    ]);
-  });
-});
-</script>
-</body>
+    </body>
 </html>
