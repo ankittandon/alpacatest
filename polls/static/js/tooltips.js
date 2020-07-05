@@ -7,24 +7,24 @@ var char = new chariot({
             tooltip : {
                 position: 'bottom',
                 title: 'Chariot Example Tutorial',
-                text: 'This example tutorial will walk you through an html page'
+                text: 'This example tutorial will walk you through an html page. It is built using chariot.js'
             }
         },
 
       {
-        selectors: 'span#microsoft',
-        tooltip: {
-          position: 'right',
-          title: 'First Div',
-          text: 'This div will do absolutely nothing if you click on it, but how would you know if I didnt tell you'
-        }
-      },
-      {
         selectors: 'span#amazon',
         tooltip: {
           position: 'right',
-          title: 'Second Div',
-          text: "This div is a bit more complex, it knows a lot about you. Be careful around it"
+          title: 'Microsoft',
+          text: 'This tutorial box can tell you something important about Microsoft like: "Microsoft has a market cap of 1.56 Tillion Dollars"'
+        }
+      },
+      {
+        selectors: 'span#microsoft',
+        tooltip: {
+          position: 'bottom',
+          title: 'Amazon',
+          text: "Amazon's market cap is 1.44 Trillion Dollars - $1,400,000,000,000 (that's 11 zeroes!)"
         }
       }
     ]
